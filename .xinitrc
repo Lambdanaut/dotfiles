@@ -1,0 +1,30 @@
+#Set The Cursor
+xsetroot -cursor_name left_ptr &
+
+#Set Wallpaper
+feh --bg-scale ~/.bin/wallpaper.png &
+
+#Start Compositing Manager. Makes Windows look nice & Transparent
+xcompmgr -c &
+
+#Start Screensaver
+xscreensaver -no-splash &
+
+#Default Browser
+export BROWSER="chromium"
+
+#Startup Programs
+chromium&
+skype &
+
+for i in red green blue yellow pink
+do
+  python ~/.bin/randurxvt.py $i &
+done
+
+evolution &
+transmission-gtk --class "Transmissision" &
+xchat --class "XChat" &
+
+#Start Devmon for auto-mounting devices and Window Manager
+exec ck-launch-session bash -c "devmon & xmonad"
