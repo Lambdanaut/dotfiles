@@ -15,6 +15,7 @@ xscreensaver -no-splash &
 
 #Default Browser
 export BROWSER="chromium"
+export EDITOR="vim"
 
 #Startup Programs
 chromium&
