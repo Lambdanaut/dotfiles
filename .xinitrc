@@ -1,3 +1,6 @@
+# These commands are run when I log into my account. 
+# It includes setting up my windows manager(Xmonad), running a bunch of pretty terminals, and setting my wallpaper up. 
+
 #Set The Cursor
 xsetroot -cursor_name left_ptr &
 

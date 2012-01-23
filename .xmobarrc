@@ -8,7 +8,6 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                       --, Run Wireless "wlan0" ["-t","( <essid> <qualitybar> )","-L","25","-H","75","--low","#FF0000","--normal","#F9FF00","--high","#00FF00"] 100
                         Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 100
 		      , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-		      , Run Memory ["-t","Mem: <usedratio>%"] 100
                       , Run Battery [] 100
 		      , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                       , Run StdinReader
@@ -17,5 +16,5 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
 		      ]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%cpu% * %memory% | %battery% | %wlan0% * %ssid% | %vol% }{ %StdinReader% | <fc=#ee9a00>%date%</fc> "
+	, template = "%cpu% | %battery% | %wlan0% * %ssid% | %vol% }{ %StdinReader% | <fc=#ee9a00>%date%</fc> "
 }	

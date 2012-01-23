@@ -1,4 +1,5 @@
 import XMonad
+import qualified XMonad.StackSet as W
 import XMonad.Actions.Volume
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -10,6 +11,10 @@ import Data.Monoid (mappend)
 
 myWorkspaces = ["Dev","Net","Chat","Mail"] ++ map show [5..8] ++ ["Bground"]
 
+myBorderWidth = 1
+normalColor   = "#FFFFFF"
+focusedColor  = "#FF0000"
+
 myManageHook = composeAll
   [ className =? "Chromium"       --> doShift "Net"
   , className =? "XChat"          --> doShift "Chat"
@@ -18,10 +23,10 @@ myManageHook = composeAll
   , className =? "Evolution"      --> doShift "Mail"
   , className =? "Transmissision" --> doShift "Bground"
   , className =? "Gimp"           --> doFloat
-  , resource  =? "desktop_window" --> doIgnore
-  , resource  =? "kdesktop"       --> doIgnore 
+  , className =? "MPlayer"        --> unfloat
   , manageDocks
   ]
+ where unfloat = ask >>= doF . W.sink
 
 myLayout = tiled ||| Mirror tiled ||| Full
   where
@@ -38,6 +43,9 @@ main = do
   xmonad $ defaultConfig
     { manageHook = myManageHook <+> manageHook defaultConfig
     , workspaces = myWorkspaces
+    , borderWidth = myBorderWidth
+    , normalBorderColor = normalColor
+    , focusedBorderColor = focusedColor
     , layoutHook = avoidStruts $ myLayout
     , logHook = dynamicLogWithPP xmobarPP
       { ppOutput = hPutStrLn xmproc
