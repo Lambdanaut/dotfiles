@@ -25,12 +25,6 @@ set hlsearch
 " Ignore caps locks in searches
 set ignorecase
 
-" Highlight dynamically as pattern is typed
-set incsearch
-
-" Show line numbers
-set number
-
 " Don’t show the intro message when starting vim
 set shortmess=atI
 
