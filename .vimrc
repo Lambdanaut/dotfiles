@@ -28,6 +28,15 @@ set ignorecase
 " Don’t show the intro message when starting vim
 set shortmess=atI
 
+" Python helpers
+autocmd filetype python set tabstop=2
+autocmd filetype python set shiftwidth=2
+autocmd filetype python set smarttab
+autocmd filetype python set expandtab
+autocmd filetype python set softtabstop=2
+autocmd filetype python set autoindent
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
 	let save_cursor = getpos(".")

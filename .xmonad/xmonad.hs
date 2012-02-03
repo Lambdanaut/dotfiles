@@ -1,6 +1,5 @@
 import XMonad
 import qualified XMonad.StackSet as W
-import XMonad.Actions.Volume
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
@@ -60,6 +59,6 @@ main = do
     -- take screenshot of screen
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
     
-    , ((0, xK_F6), lowerVolume 50 >> return ())
-    , ((0, xK_F7), raiseVolume 50 >> return ())
+    -- , ((0, xK_F6), lowerVolume 50 >> return ())
+    -- , ((0, xK_F7), raiseVolume 50 >> return ())
     ]
