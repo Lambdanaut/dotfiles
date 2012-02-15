@@ -9,6 +9,9 @@ source "$HOME/.bashrc"
 xsetroot -cursor_name left_ptr &
 unclutter -idle 20 &
 
+#Turn off Annoying Speaker Beeps
+xset -b
+
 #Set Wallpaper
 feh --bg-scale ~/.bin/wallpaper.png &
 
@@ -33,10 +36,8 @@ chromium&
   #CHAT
 skype &
 xchat --class "XChat" &
-  #MAIL
-evolution &
   #BGROUND
 transmission-gtk --class "Transmissision" &
 
 #Start Devmon for auto-mounting devices and Window Manager
-exec ck-launch-session bash -c "devmon & xmonad"
+exec xmonad
