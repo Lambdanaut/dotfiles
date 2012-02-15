@@ -12,7 +12,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
 		      , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                       , Run StdinReader
 		      , Run Com "netcfg current" [] "ssid" 50
-		      , Run Com "sh ~/.bin/volume.sh" [] "vol" 50
+                      , Run Com "sh ~/.bin/volume.sh" [] "vol" 50
 		      ]
 	, sepChar = "%"
 	, alignSep = "}{"

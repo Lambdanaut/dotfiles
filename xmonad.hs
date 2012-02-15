@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
+import XMonad.Actions.Volume
 
 import qualified Data.Map as M
 
@@ -34,8 +35,11 @@ myLayout = tiled ||| Mirror tiled ||| Full
 myKeys (XConfig {modMask = mod1Mask}) = M.fromList $
     -- Launch gmrun
     [ ((mod1Mask .|. shiftMask, xK_p     ), spawn "gmrun")
-    -- take screenshot of screen
+    -- Take screenshot of screen
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
+    -- Change Volume
+    , ((0, xK_F6), lowerVolume 50 >> return ())
+    , ((0, xK_F7), raiseVolume 50 >> return ())
     ]
 
 main = 
