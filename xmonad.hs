@@ -10,7 +10,7 @@ myModMask = mod1Mask
 
 myTerminal = "python ~/.bin/randurxvt.py"
 
-myWorkspaces = ["Dev","Net","Chat"] ++ map show [4..8] ++ ["Bground"]
+myWorkspaces = ["Dev","Net","Chat","Files"] ++ map show [4..8] ++ ["Bground"]
 
 myBorderWidth = 1
 normalColor   = "#FFFFFF"
@@ -21,6 +21,7 @@ myManageHook = composeAll
   , className =? "XChat"          --> doShift "Chat"
   , className =? "Skype"          --> doShift "Chat"
   , className =? "Pidgin"         --> doShift "Chat"
+  , className =? "Thunar"         --> doShift "Files"
   , className =? "Transmissision" --> doShift "Bground"
   , className =? "Gimp"           --> doFloat
   ]

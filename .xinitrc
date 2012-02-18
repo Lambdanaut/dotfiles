@@ -36,6 +36,8 @@ chromium&
   #CHAT
 skype &
 xchat --class "XChat" &
+  #FILES
+thunar --class "Thunar" &
   #BGROUND
 transmission-gtk --class "Transmissision" &
 
