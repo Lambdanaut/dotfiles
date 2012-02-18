@@ -9,7 +9,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                         Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 100
 		      , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                       , Run Battery [] 100
-		      , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+		      , Run Date "%a %b %_d %Y %r" "date" 10
                       , Run StdinReader
 		      , Run Com "netcfg current" [] "ssid" 50
                       , Run Com "sh ~/.bin/volume.sh" [] "vol" 50

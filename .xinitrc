@@ -39,5 +39,21 @@ xchat --class "XChat" &
   #BGROUND
 transmission-gtk --class "Transmissision" &
 
-#Start Devmon for auto-mounting devices and Window Manager
-exec xmonad
+#Start Window Manager
+case $1 in
+xmonad)
+	exec xmonad
+	;;
+i3)
+	exec i3
+	;;
+openbox)
+	exec openbox
+	;;
+awesome)
+	exec awesome
+	;;
+*)
+	exec xmonad
+	;;
+esac

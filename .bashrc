@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# Haskell packages
+PATH=$PATH:~/.cabal/bin/
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

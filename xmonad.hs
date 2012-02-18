@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Actions.Volume
+import XMonad.Actions.SinkAll
 
 import qualified Data.Map as M
 
@@ -40,6 +41,8 @@ myKeys (XConfig {modMask = mod1Mask}) = M.fromList $
     -- Change Volume
     , ((0, xK_F6), lowerVolume 50 >> return ())
     , ((0, xK_F7), raiseVolume 50 >> return ())
+    -- Unfloat all windows on current workspace
+    , ((mod1Mask .|. shiftMask, xK_e), sinkAll)
     ]
 
 main = 
