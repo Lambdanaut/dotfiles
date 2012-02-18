@@ -4,7 +4,12 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.Volume
 import XMonad.Actions.SinkAll
 
+import XMonad.Util.Themes
+import XMonad.Layout.Tabbed
+
 import qualified Data.Map as M
+
+myModMask = mod1Mask
 
 myTerminal = "python ~/.bin/randurxvt.py"
 
@@ -23,7 +28,7 @@ myManageHook = composeAll
   , className =? "Gimp"           --> doFloat
   ]
 
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = tiled ||| Mirror tiled  ||| tabbed shrinkText (theme smallClean)
   where
     tiled   = Tall nmaster delta ratio
     -- The default number of windows in the master pane
@@ -33,17 +38,18 @@ myLayout = tiled ||| Mirror tiled ||| Full
     -- Percent of screen to increment by when resizing panes
     delta   = 3/100
 
-myKeys (XConfig {modMask = mod1Mask}) = M.fromList $
+myKeys (XConfig {modMask = myModMask}) = M.fromList $
     -- Launch gmrun
-    [ ((mod1Mask .|. shiftMask, xK_p     ), spawn "gmrun")
+    [ ((myModMask .|. shiftMask, xK_p     ), spawn "gmrun")
     -- Take screenshot of screen
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
     -- Change Volume
     , ((0, xK_F6), lowerVolume 50 >> return ())
     , ((0, xK_F7), raiseVolume 50 >> return ())
     -- Unfloat all windows on current workspace
-    , ((mod1Mask .|. shiftMask, xK_e), sinkAll)
+    , ((myModMask .|. shiftMask, xK_e), sinkAll)
     ]
+
 
 main = 
   xmonad =<< xmobar defaultConfig
@@ -53,7 +59,7 @@ main =
     , normalBorderColor  = normalColor
     , focusedBorderColor = focusedColor
     , layoutHook         = myLayout
-    , modMask            = mod1Mask
+    , modMask            = myModMask
     , terminal           = myTerminal
     , keys               = myKeys <+> keys defaultConfig
     }
