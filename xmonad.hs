@@ -4,9 +4,6 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.Volume
 import XMonad.Actions.SinkAll
 
-import XMonad.Util.Themes
-import XMonad.Layout.Tabbed
-
 import qualified Data.Map as M
 
 myModMask = mod1Mask
@@ -28,7 +25,7 @@ myManageHook = composeAll
   , className =? "Gimp"           --> doFloat
   ]
 
-myLayout = tiled ||| Mirror tiled  ||| tabbed shrinkText (theme smallClean)
+myLayout = tiled ||| Mirror tiled  ||| Full
   where
     tiled   = Tall nmaster delta ratio
     -- The default number of windows in the master pane
