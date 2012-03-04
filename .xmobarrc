@@ -1,4 +1,4 @@
-Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+Config {  font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
 	, bgColor = "black"
 	, fgColor = "grey"
 	, borderColor = "black"
@@ -12,9 +12,10 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
 		      , Run Date "%a %b %_d %Y %r" "date" 10
                       , Run StdinReader
 		      , Run Com "netcfg current" [] "ssid" 50
-                      , Run Com "sh ~/.bin/volume.sh" [] "vol" 50
+                      , Run Com "sh ~/.bin/volume.sh" [] "vol" 100
+                      , Run Com "cat ~/.bin/currentNews" [] "news" 500
 		      ]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%cpu% | %battery% | %wlan0% * %ssid% | %vol% }{ %StdinReader% | <fc=#ee9a00>%date%</fc> "
-}	
+	, template = "%cpu% | %battery% | %wlan0% * %ssid% | %vol% | <fc=#ee9a00>%news%</fc>}{ %StdinReader% | <fc=#ee9a00>%date%</fc> "
+}

@@ -2,8 +2,8 @@
 # ~/.bashrc
 #
 
-# Haskell packages
-PATH=$PATH:~/.cabal/bin/
+# Cabal & Gem  packages
+PATH=$PATH:~/.cabal/bin/:~/.gem/ruby/1.9.1/bin
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

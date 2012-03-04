@@ -10,7 +10,7 @@ myModMask = mod1Mask
 
 myTerminal = "python ~/.bin/randurxvt.py"
 
-myWorkspaces = ["Dev","Net","Chat","Files"] ++ map show [4..8] ++ ["Bground"]
+myWorkspaces = ["Dev","Net","Chat","Files"] ++ map show [5..8] ++ ["Bground"]
 
 myBorderWidth = 1
 normalColor   = "#FFFFFF"
