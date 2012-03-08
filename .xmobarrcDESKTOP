@@ -12,9 +12,9 @@ Config {  font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                       , Run StdinReader
 		      , Run Com "netcfg current" [] "ssid" 50
                       , Run Com "sh ~/.bin/volume.sh" [] "vol" 100
-                      , Run Com "python2 ~/.bin/news.py" [] "news" 2000
+                      , Run Com "curl 'http://drawrawr.com/extra/updates/getUpdateCount.php?user=Lambdanaut&type=all'" [] "dr" 2500
 		      ]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%cpu% | %wlan0% * %ssid% | %vol% | <fc=#ee9a00>%news%</fc>}{ %StdinReader% | <fc=#ee9a00>%date%</fc> "
+	, template = "%cpu% | %wlan0% * %ssid% | %vol% | DR Updates: <fc=#ee9a00>%dr%</fc>}{ %StdinReader% | <fc=#ee9a00>%date%</fc> "
 }

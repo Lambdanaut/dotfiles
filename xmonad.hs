@@ -41,9 +41,9 @@ myKeys (XConfig {modMask = myModMask}) = M.fromList $
     [ ((myModMask .|. shiftMask, xK_p     ), spawn "gmrun")
     -- Take screenshot of screen
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
-    -- Change Volume
-    --, ((0, xK_F6), lowerVolume 50 >> return ())
-    --, ((0, xK_F7), raiseVolume 50 >> return ())
+    -- Mute volume
+    , ((0, xK_F6), spawn "amixer set Master mute")
+    , ((0, xK_F7), spawn "amixer set Master unmute")
     -- Unfloat all windows on current workspace
     , ((myModMask .|. shiftMask, xK_e), sinkAll)
     ]
