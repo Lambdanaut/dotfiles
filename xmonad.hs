@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
-import XMonad.Actions.Volume
+--import XMonad.Actions.Volume
 import XMonad.Actions.SinkAll
 
 import qualified Data.Map as M
@@ -42,8 +42,8 @@ myKeys (XConfig {modMask = myModMask}) = M.fromList $
     -- Take screenshot of screen
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
     -- Change Volume
-    , ((0, xK_F6), lowerVolume 50 >> return ())
-    , ((0, xK_F7), raiseVolume 50 >> return ())
+    --, ((0, xK_F6), lowerVolume 50 >> return ())
+    --, ((0, xK_F7), raiseVolume 50 >> return ())
     -- Unfloat all windows on current workspace
     , ((myModMask .|. shiftMask, xK_e), sinkAll)
     ]
