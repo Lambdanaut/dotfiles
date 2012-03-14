@@ -2,8 +2,13 @@
 # ~/.bashrc
 #
 
-# Cabal & Gem  packages
-PATH=$PATH:~/.cabal/bin/:~/.gem/ruby/1.9.1/bin
+# Add these to the path
+  # Cabal
+PATH=$PATH:~/.cabal/bin
+  # Ruby Gem
+PATH=$PATH:~/.gem/ruby/1.9.1/bin
+  # Heroku
+PATH=$PATH:~/.heroku
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

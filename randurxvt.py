@@ -96,8 +96,8 @@ else:
 		rand2 = rand(0,9999)
 		rand3 = rand(0,9999)
 
-alpha = "5000"
+alpha = "6000"
 
-command = "urxvt -depth 32 -fg grey90 -bg rgba:"+rand1+"/"+rand2+"/"+rand3+"/"+alpha
+command = "urxvt -depth 32 -fg gray90 -bg rgba:"+rand1+"/"+rand2+"/"+rand3+"/"+alpha
 
 os.system(command)

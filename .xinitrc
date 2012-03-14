@@ -13,7 +13,7 @@ unclutter -idle 20 &
 xset -b
 
 #Set Wallpaper
-feh --bg-scale ~/.bin/wallpaper.png &
+feh --bg-fill ~/.bin/wallpaper.png &
 
 #Start Compositing Manager. Makes Windows look nice & Transparent
 xcompmgr -c &

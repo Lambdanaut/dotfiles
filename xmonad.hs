@@ -39,11 +39,17 @@ myLayout = tiled ||| Mirror tiled  ||| Full
 myKeys (XConfig {modMask = myModMask}) = M.fromList $
     -- Launch gmrun
     [ ((myModMask .|. shiftMask, xK_p     ), spawn "gmrun")
+
     -- Take screenshot of screen
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
+
+    -- Randomly alternate wallpaper
+    , ((myModMask .|. shiftMask, xK_w), spawn "sh ~/.bin/randwall.sh")
+
     -- Mute volume
-    , ((0, xK_F6), spawn "amixer set Master mute")
-    , ((0, xK_F7), spawn "amixer set Master unmute")
+    -- , ((0, xK_F6), spawn "amixer set Master mute")
+    -- , ((0, xK_F7), spawn "amixer set Master unmute")
+
     -- Unfloat all windows on current workspace
     , ((myModMask .|. shiftMask, xK_e), sinkAll)
     ]
