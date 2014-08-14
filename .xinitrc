@@ -5,57 +5,49 @@
 cd $HOME
 source "$HOME/.bashrc"
 
+#Source XResources
+xrdb -merge ~/.Xresources &
+
 #Set The Cursor
 xsetroot -cursor_name left_ptr &
-unclutter -idle 20 &
 
 #Turn off Annoying Speaker Beeps
 xset -b
 
 #Set Wallpaper
-feh --bg-fill ~/.bin/wallpaper.png &
+feh --bg-fill ~/scripts/wallpaper.png &
 
 #Start Compositing Manager. Makes Windows look nice & Transparent
 xcompmgr -c &
 
-#Start Screensaver
-xscreensaver -no-splash &
-
 #Default Browser
-export BROWSER="chromium"
+export BROWSER="google-chrome-unstable"
 export EDITOR="vim"
+
+#Dim screen
+xbacklight -set 50
+
+# Initialize flux to adjust screen's brightness based on zip code/time of day
+xflux -z 98008
 
 #Startup Programs
   #DEV
-for i in red green blue yellow pink
+for i in red green yellow
 do
-  python ~/.bin/randurxvt.py $i &
+  python ~/scripts/randurxvt.py $i &
 done
+subl3 --class "Sublime" &
   #NET
-chromium&
+#chromium &
+google-chrome-unstable &
   #CHAT
-skype &
-xchat --class "XChat" &
+#skype &
+#xchat --class "XChat" &
+python ~/scripts/randurxvt.py green "-e irssi" &
   #FILES
 thunar --class "Thunar" &
   #BGROUND
-transmission-gtk --class "Transmissision" &
+#transmission-gtk --class "Transmissision" &
 
 #Start Window Manager
-case $1 in
-xmonad)
-	exec xmonad
-	;;
-i3)
-	exec i3
-	;;
-openbox)
-	exec openbox
-	;;
-awesome)
-	exec awesome
-	;;
-*)
-	exec xmonad
-	;;
-esac
+exec $1

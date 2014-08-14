@@ -6,24 +6,27 @@ import XMonad.Actions.SinkAll
 
 import qualified Data.Map as M
 
-myModMask = mod1Mask
+myModMask = mod4Mask
 
-myTerminal = "python ~/.bin/randurxvt.py"
+myTerminal = "python ~/scripts/randurxvt.py"
 
 myWorkspaces = ["Dev","Net","Chat","Files"] ++ map show [5..8] ++ ["Bground"]
 
-myBorderWidth = 1
+myBorderWidth = 3
 normalColor   = "#FFFFFF"
 focusedColor  = "#FF0000"
 
 myManageHook = composeAll
-  [ className =? "Chromium"       --> doShift "Net"
-  , className =? "XChat"          --> doShift "Chat"
-  , className =? "Skype"          --> doShift "Chat"
-  , className =? "Pidgin"         --> doShift "Chat"
-  , className =? "Thunar"         --> doShift "Files"
-  , className =? "Transmissision" --> doShift "Bground"
-  , className =? "Gimp"           --> doFloat
+  [ className =? "Sublime"                --> doShift "Dev"
+  , className =? "Chromium"               --> doShift "Net"
+  , className =? "Google-chrome-unstable" --> doShift "Net"
+  , title     =? "irssi"                  --> doShift "Chat"
+  , className =? "XChat"                  --> doShift "Chat"
+  , className =? "Skype"                  --> doShift "Chat"
+  , className =? "Pidgin"                 --> doShift "Chat"
+  , className =? "Thunar"                 --> doShift "Files"
+  , className =? "Transmissision"         --> doShift "Bground"
+  , className =? "Gimp"                   --> doFloat
   ]
 
 myLayout = tiled ||| Mirror tiled  ||| Full
@@ -44,7 +47,7 @@ myKeys (XConfig {modMask = myModMask}) = M.fromList $
     , ((0, xK_Print), spawn "scrot ~/screenshot.png")
 
     -- Randomly alternate wallpaper
-    , ((myModMask .|. shiftMask, xK_w), spawn "sh ~/.bin/randwall.sh")
+    , ((myModMask .|. shiftMask, xK_w), spawn "sh ~/scripts/randwall.sh")
 
     -- Mute volume
     -- , ((0, xK_F6), spawn "amixer set Master mute")

@@ -5,8 +5,15 @@ import random, os, sys
 #If True, Colors will be more saturated. If false, colors will be more random.
 saturatedColors = True
 
-try: commandLine = sys.argv[1]
-except: commandLine = False
+try: 
+    color = sys.argv[1]
+except: 
+    color = False
+
+try: 
+    extra_commands = " {}".format(sys.argv[2])
+except: 
+    extra_commands = ""
 
 def padStr(string,length):
 	if len(string) < length:
@@ -17,7 +24,7 @@ def padStr(string,length):
 def rand(x,y):
 	return padStr(str(hex(random.randint(x,y)))[2:],4)
 
-if saturatedColors and not commandLine:
+if saturatedColors and not color:
 	randDecide = random.randint(0,5)
 	if randDecide == 0:
 		rand1 = "ffff"
@@ -47,28 +54,28 @@ if saturatedColors and not commandLine:
 		rand1 = "ffff"
 		rand2 = "ffff"
 		rand3 = "ffff"
-elif commandLine != False:
-	if commandLine == "red":
+elif color != False:
+	if color == "red":
 		rand1 = "ffff"
 		rand2 = "0000"
 		rand3 = "0000"
-	elif commandLine == "green":
+	elif color == "green":
 		rand1 = "0000"
 		rand2 = "ffff"
 		rand3 = "0000"
-	elif commandLine == "blue":
+	elif color == "blue":
 		rand1 = "0000"
 		rand2 = "0000"
 		rand3 = "ffff"
-	elif commandLine == "yellow":
+	elif color == "yellow":
 		rand1 = "ffff"
 		rand2 = "ffff"
 		rand3 = "0000"
-	elif commandLine == "teal":
+	elif color == "teal":
 		rand1 = "0000"
 		rand2 = "ffff"
 		rand3 = "ffff"
-	elif commandLine == "pink":
+	elif color == "pink":
 		rand1 = "ffff"
 		rand2 = "0000"
 		rand3 = "ffff"
@@ -98,6 +105,6 @@ else:
 
 alpha = "6000"
 
-command = "urxvt -depth 32 -fg gray90 -bg rgba:"+rand1+"/"+rand2+"/"+rand3+"/"+alpha
+command = "urxvt -depth 32 -fg grey90 -bg rgba:{}/{}/{}/{} {}".format(rand1,rand2,rand3,alpha, extra_commands)
 
 os.system(command)
