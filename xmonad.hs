@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Hooks.ICCCMFocus
+import XMonad.Hooks.EwmhDesktops
 --import XMonad.Actions.Volume
 import XMonad.Actions.SinkAll
 
@@ -60,7 +61,7 @@ myKeys (XConfig {modMask = myModMask}) = M.fromList $
 
 
 main = 
-  xmonad =<< xmobar defaultConfig
+  (xmonad.ewmh) =<< xmobar defaultConfig
     { manageHook         = myManageHook <+> manageHook defaultConfig
     , workspaces         = myWorkspaces
     , borderWidth        = myBorderWidth
