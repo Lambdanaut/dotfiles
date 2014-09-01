@@ -28,7 +28,6 @@ myManageHook = composeAll
   , className =? "Thunar"                   --> doShift "Files"
   , className =? "Transmissision"           --> doShift "Bground"
   , className =? "Gimp"                     --> doFloat
-  , title     =? "LibreOffice"              --> doFloat
   ]
 
 myLayout = tiled ||| Mirror tiled  ||| Full
