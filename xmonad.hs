@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
+import XMonad.Hooks.ICCCMFocus
 --import XMonad.Actions.Volume
 import XMonad.Actions.SinkAll
 
@@ -17,16 +18,17 @@ normalColor   = "#FFFFFF"
 focusedColor  = "#FF0000"
 
 myManageHook = composeAll
-  [ className =? "Sublime"                --> doShift "Dev"
-  , className =? "Chromium"               --> doShift "Net"
-  , className =? "Google-chrome-unstable" --> doShift "Net"
-  , title     =? "irssi"                  --> doShift "Chat"
-  , className =? "XChat"                  --> doShift "Chat"
-  , className =? "Skype"                  --> doShift "Chat"
-  , className =? "Pidgin"                 --> doShift "Chat"
-  , className =? "Thunar"                 --> doShift "Files"
-  , className =? "Transmissision"         --> doShift "Bground"
-  , className =? "Gimp"                   --> doFloat
+  [ className =? "Sublime"                  --> doShift "Dev"
+  , className =? "Chromium"                 --> doShift "Net"
+  , className =? "Google-chrome-unstable"   --> doShift "Net"
+  , title     =? "irssi"                    --> doShift "Chat"
+  , className =? "XChat"                    --> doShift "Chat"
+  , className =? "Skype"                    --> doShift "Chat"
+  , className =? "Pidgin"                   --> doShift "Chat"
+  , className =? "Thunar"                   --> doShift "Files"
+  , className =? "Transmissision"           --> doShift "Bground"
+  , className =? "Gimp"                     --> doFloat
+  , title     =? "LibreOffice"              --> doFloat
   ]
 
 myLayout = tiled ||| Mirror tiled  ||| Full
@@ -66,6 +68,7 @@ main =
     , normalBorderColor  = normalColor
     , focusedBorderColor = focusedColor
     , layoutHook         = myLayout
+    , startupHook        = takeTopFocus
     , modMask            = myModMask
     , terminal           = myTerminal
     , keys               = myKeys <+> keys defaultConfig

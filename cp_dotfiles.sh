@@ -3,6 +3,7 @@
 declare -A dotfile
 
 
+
 # The filename and the location to move the file to/from
 dotfile[".vimrc"]="/home/$(whoami)/"
 dotfile[".bashrc"]="/home/$(whoami)/"
