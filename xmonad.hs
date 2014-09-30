@@ -5,6 +5,7 @@ import XMonad.Hooks.ICCCMFocus
 import XMonad.Hooks.EwmhDesktops
 --import XMonad.Actions.Volume
 import XMonad.Actions.SinkAll
+import XMonad.Layout.Fullscreen
 
 import qualified Data.Map as M
 
@@ -28,6 +29,7 @@ myManageHook = composeAll
   , className =? "Pidgin"                   --> doShift "Chat"
   , className =? "Thunar"                   --> doShift "Files"
   , className =? "Transmissision"           --> doShift "Bground"
+  , className =? "hl2_linux"                --> fullscreenManageHook
   , className =? "Gimp"                     --> doFloat
   ]
 
