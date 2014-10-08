@@ -106,6 +106,7 @@ chatnets = {
 channels = (
   { name = "#haskell"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#python"; chatnet = "Freenode"; autojoin = "Yes"; }
+  { name = "#openworm"; chatnet = "Freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
