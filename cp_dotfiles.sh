@@ -5,18 +5,24 @@ declare -A dotfile
 
 
 # The filename and the location to move the file to/from
+
+# System config files
 dotfile[".vimrc"]="/home/$(whoami)/"
 dotfile[".bashrc"]="/home/$(whoami)/"
 dotfile[".xinitrc"]="/home/$(whoami)/"
 
+## Personal Scripts
 dotfile["randurxvt.py"]="/home/$(whoami)/scripts/"
 dotfile["randwall.sh"]="/home/$(whoami)/scripts/"
 dotfile["volume.sh"]="/home/$(whoami)/scripts/"
 dotfile["wallpaper.png"]="/home/$(whoami)/scripts/"
 
+## XMonad
 dotfile["xmonad.hs"]="/home/$(whoami)/.xmonad/"
 dotfile[".xmobarrc"]="/home/$(whoami)/"
 
+## Irssi
+dotfile["config"]="/home/$(whoami)/.irssi/"
 
 
 if [ "$1" = "--export" ]; then
